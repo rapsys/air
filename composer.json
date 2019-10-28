@@ -17,7 +17,8 @@
         "symfony/yaml": "4.3.*",
         "twig/extensions": "1.5.*",
         "rapsys/packbundle": "dev-master",
-        "rapsys/userbundle": "dev-master"
+        "rapsys/userbundle": "dev-master",
+        "rapsys/airbundle": "dev-master"
     },
     "require-dev": {
     },
@@ -106,6 +107,18 @@
                     "psr-4": {
                         "Rapsys\\AirBundle\\": ""
                     }
+                },
+                "require": {
+                    "php": "*",
+                    "doctrine/common": "*",
+                    "symfony/config": "*",
+                    "symfony/dependency-injection": "*",
+                    "symfony/form": "*",
+                    "symfony/framework-bundle": "*",
+                    "symfony/routing": "*",
+                    "symfony/security": "*",
+                    "doctrine/data-fixtures": "*",
+                    "twig/extensions": "^1.5"
                 }
             }
         }
