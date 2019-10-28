@@ -120,6 +120,7 @@
                     "symfony/security-bundle": "*",
                     "symfony/translation": "*",
                     "symfony/twig-bundle": "*",
+                    "symfony/validator": "*",
                     "doctrine/data-fixtures": "*",
                     "twig/extensions": "^1.5"
                 }
