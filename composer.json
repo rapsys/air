@@ -121,7 +121,9 @@
                     "symfony/translation": "*",
                     "symfony/twig-bundle": "*",
                     "symfony/validator": "*",
-                    "doctrine/data-fixtures": "*",
+                    "doctrine/doctrine-bundle": "*",
+                    "doctrine/doctrine-fixtures-bundle": "*",
+                    "swiftmailer/swiftmailer": "*",
                     "twig/extensions": "^1.5"
                 }
             }
