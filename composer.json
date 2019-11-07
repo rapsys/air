@@ -117,6 +117,8 @@
                 },
                 "require-dev": {
                     "doctrine/doctrine-fixtures-bundle": "^3.2",
+                    "doctrine/doctrine-migrations-bundle": "^2.0",
+                    "symfony/maker-bundle": "^1.14",
                     "symfony/web-profiler-bundle": "^4.3"
                 }
             }
