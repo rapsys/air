@@ -56,17 +56,11 @@
                     }
                 },
                 "require": {
-                    "php": "*",
-                    "doctrine/common": "*",
-                    "symfony/config": "*",
-                    "symfony/dependency-injection": "*",
-                    "symfony/form": "*",
-                    "symfony/framework-bundle": "*",
-                    "symfony/routing": "*",
-                    "symfony/security-bundle": "*"
-                },
-                "require-dev": {
-                    "doctrine/data-fixtures": "*"
+                    "doctrine/doctrine-bundle": "^4.3",
+                    "symfony/form": "^4.3",
+                    "symfony/framework-bundle": "^4.3",
+                    "symfony/security-bundle": "^4.3",
+                    "symfony/validator": "^4.3"
                 }
             }
         },
@@ -86,9 +80,9 @@
                     }
                 },
                 "require": {
+                    "symfony/framework-bundle": "^4.3",
+                    "symfony/twig-bundle": "^4.3",
                     "symfony/asset": "^4.3",
-                    "symfony/config": "^4.3",
-                    "symfony/dependency-injection": "^4.3",
                     "symfony/process": "^4.3",
                     "twig/extensions": "^1.5"
                 }
@@ -110,21 +104,18 @@
                     }
                 },
                 "require": {
-                    "php": "*",
-                    "doctrine/common": "*",
-                    "symfony/config": "*",
-                    "symfony/dependency-injection": "*",
-                    "symfony/form": "*",
-                    "symfony/framework-bundle": "*",
-                    "symfony/routing": "*",
-                    "symfony/security-bundle": "*",
-                    "symfony/translation": "*",
-                    "symfony/twig-bundle": "*",
-                    "symfony/validator": "*",
-                    "doctrine/doctrine-bundle": "*",
-                    "doctrine/doctrine-fixtures-bundle": "*",
-                    "swiftmailer/swiftmailer": "*",
+                    "doctrine/doctrine-bundle": "^4.3",
+                    "symfony/form": "^4.3",
+                    "symfony/framework-bundle": "^4.3",
+                    "symfony/security-bundle": "^4.3",
+                    "symfony/translation": "^4.3",
+                    "symfony/twig-bundle": "^4.3",
+                    "symfony/validator": "^4.3",
+                    "swiftmailer/swiftmailer-bundle": "^3.3",
                     "twig/extensions": "^1.5"
+                },
+                "require-dev": {
+                    "doctrine/doctrine-fixtures-bundle": "^3.2"
                 }
             }
         }
