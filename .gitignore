@@ -3,9 +3,9 @@
 /.env.local
 /.env.local.php
 /.env.*.local
+/config/bundles.php
+/public/index.php
 /public/bundles/
-/var/cache/
-/var/log/
-/var/sessions/
+/var/
 /vendor/
 ###< symfony/framework-bundle ###
