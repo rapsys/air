@@ -1,0 +1,135 @@
+#! /bin/sh
+
+export APP_ENV='dev'
+export APP_SECRET=`cat /dev/urandom | tr -dc 'A-Za-z0-9+,.:;@_-' | head -c 64`
+export DATABASE_URL='mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7'
+export MAILER_DSN='smtp://localhost'
+
+set -x
+
+# Ask for a full reset
+read -p 'Full reset Yes/[No] ?' full
+
+# Full reset required
+if [ "$full" = 'Yes' -o "$full" = 'YES' -o "$full" = 'yes' ]; then
+	# Check if we have a rapsys racine
+	if [ -d vendor/rapsys ]; then
+		# Process each remaining git sub directory
+		for i in `ls -d vendor/rapsys/*`; do
+			pushd $i;
+			# Stash modifications if present
+			git stash save;
+			# Set back to HEAD
+			git reset --hard;
+			# Force kick untracked files and directories
+			git clean -fxd;
+			popd;
+		done;
+	fi;
+
+	# Stash modifications if present
+	git stash save;
+	# Set back to HEAD
+	git reset --hard;
+	# Force kick untracked files and directories
+	git clean -fxd;
+
+	# Prune directories
+	sudo rm -fr var/{cache/{dev,prod,test},log,sessions} public/{css,js,img,bundles};
+
+	# Recreate tree
+	mkdir -p var/{cache/{dev,prod,test},log,sessions} public/{css,js,img,bundles};
+
+	# Touch local env
+	touch '.env.local.php'
+
+	# Set ownership
+	chown $USER. '.env.local.php' var/{cache/{,dev,prod,test},log,sessions} public/{,css,js,img,bundles};
+
+	# Set acl
+	setfacl -m u:apache:rwX '.env.local.php' var/{cache/{,dev,prod,test},log,sessions} public/{css,js,img,bundles};
+
+	# Run install
+	composer install --no-scripts
+
+	# Run fix-recipes
+	composer fix-recipes
+
+	# Reset composer.json
+	git checkout -- composer.json
+
+	# Recreate src/Entity for doctrine
+	mkdir -p src/Entity
+
+	# Run scripts as apache
+	sudo -u apache composer auto-scripts
+
+	# Fix env file
+	perl -ne 'my %e=(APP_ENV=>"'$APP_ENV'",APP_SECRET=>"'${APP_SECRET/@/\\@}'",DATABASE_URL=>"'${DATABASE_URL/@/\\@}'",MAILER_DSN=>"'$MAILER_DSN'");my $p=join("|",keys %e);if(/^[#\s]*($p)=/){$_=$1."=\"".$e{$1}."\"\n";};print $_;' -i.orig .env
+
+	# Dump the env
+	sudo -u apache composer symfony:dump-env $APP_ENV
+
+	# Remove acl
+	setfacl -b '.env.local.php'
+
+	# Drop current schema
+	sudo -u apache php bin/console doctrine:schema:drop --force
+
+	# Create current schema
+	sudo -u apache php bin/console doctrine:schema:create
+
+	# Load fixtures
+	sudo -u apache php bin/console doctrine:fixtures:load --env=dev --no-interaction
+
+	# Clear cache again
+	sudo -u apache php bin/console cache:clear
+else
+	# Prune directories
+	rm -fr var/{cache/{dev,prod,test},log,sessions} public/bundles;
+
+	# Recreate them
+	mkdir -p var/{cache/{dev,prod,test},log,sessions} public/{,bundles/rapsyspack/}{css,js,img};
+
+	# Set ownership
+	sudo chown $USER. var/{cache/{,dev,prod,test},log,sessions} public/{,css,js,img,bundles/{,rapsyspack/{,css,js,img}}};
+
+	# Set acl
+	sudo setfacl -m u:apache:rwX var/{cache/{,dev,prod,test},log,sessions} public/{css,js,img,bundles/{,rapsyspack/{css,js,img}}};
+
+	# Run composer update
+	composer update --no-scripts
+
+	# Run fix-recipes
+	composer fix-recipes
+
+	# Reset composer.json
+	git checkout -- composer.json
+
+	# Prune directories
+	rm -fr var/{cache/{dev,prod,test},log,sessions} public/bundles;
+
+	# Recreate them
+	mkdir -p var/{cache/{dev,prod,test},log,sessions} public/{,bundles/rapsyspack/}{css,js,img};
+
+	# Set ownership
+	sudo chown $USER. var/{cache/{,dev,prod,test},log,sessions} public/{,css,js,img,bundles/{,rapsyspack/{,css,js,img}}};
+
+	# Set acl
+	sudo setfacl -m u:apache:rwX var/{cache/{,dev,prod,test},log,sessions} public/{css,js,img,bundles/{,rapsyspack/{,css,js,img}}};
+
+	# Run scripts as apache
+	sudo -u apache composer auto-scripts
+
+	# Clear cache again
+	sudo -u apache php bin/console cache:clear
+fi
+
+# Recreate them
+mkdir -p var/{cache/{dev,prod,test},log,sessions} public/{,bundles/rapsyspack/}{css,js,img};
+
+# Set ownership
+sudo chown $USER. var/{cache/{,dev,prod,test},log,sessions} public/{,css,js,img,bundles/{,rapsyspack/{,css,js,img}}};
+
+# Set acl
+setfacl -m u:apache:rwX var/{cache/{,dev,prod,test},log,sessions} public/{css,js,img,bundles/{,rapsyspack/{css,js,img}}};
