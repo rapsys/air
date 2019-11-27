@@ -2,7 +2,8 @@
 
 export APP_ENV='dev'
 export APP_SECRET=`cat /dev/urandom | tr -dc 'A-Za-z0-9+,.:;@_-' | head -c 64`
-export MAILER_DSN='smtp://localhost'
+export DATABASE_URL='mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7'
+export MAILER_DSN='sendmail+smtp://default'
 
 set -x
 
@@ -64,7 +65,7 @@ if [ "$full" = 'Yes' -o "$full" = 'YES' -o "$full" = 'yes' ]; then
 	sudo -u apache composer auto-scripts
 
 	# Fix env file
-	perl -ne 'my %e=(APP_ENV=>"'$APP_ENV'",APP_SECRET=>"'${APP_SECRET/@/\\@}'",MAILER_DSN=>"'$MAILER_DSN'");my $p=join("|",keys %e);if(/^[#\s]*($p)=/){$_=$1."=\"".$e{$1}."\"\n";};print $_;' -i.orig .env
+	perl -ne 'my %e=(APP_ENV=>"'$APP_ENV'",APP_SECRET=>"'${APP_SECRET/@/\\@}'",DATABASE_URL=>"'${DATABASE_URL/@/\\@}'",MAILER_DSN=>"'$MAILER_DSN'");my $p=join("|",keys %e);if(/^[#\s]*($p)=/){$_=$1."=\"".$e{$1}."\"\n";};print $_;' -i.orig .env
 
 	# Dump the env
 	sudo -u apache composer symfony:dump-env $APP_ENV
