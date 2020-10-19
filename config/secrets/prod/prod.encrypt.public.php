@@ -1,0 +1,3 @@
+<?php // prod.encrypt.public on Wed, 20 May 2020 13:48:52 +0200
+
+return "\xF2HO\x0C4\x03Q\xD8_B_\x91\x95\x2F\xC1sj\xEC\xBF\x9B\xDB\x96\x17\x1BR\x3FGQi\xB8\x26R";
