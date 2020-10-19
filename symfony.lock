@@ -160,6 +160,9 @@
             "public/index.php"
         ]
     },
+    "symfony/http-client-contracts": {
+        "version": "2.3.1"
+    },
     "symfony/http-foundation": {
         "version": "5.0.8"
     },
@@ -203,6 +206,9 @@
     "symfony/polyfill-intl-idn": {
         "version": "1.17.0"
     },
+    "symfony/polyfill-intl-normalizer": {
+        "version": "1.18.1"
+    },
     "symfony/polyfill-mbstring": {
         "version": "1.17.0"
     },
@@ -211,6 +217,9 @@
     },
     "symfony/polyfill-php73": {
         "version": "1.17.0"
+    },
+    "symfony/polyfill-php80": {
+        "version": "1.18.1"
     },
     "symfony/process": {
         "version": "4.4.8"
