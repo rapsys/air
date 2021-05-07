@@ -129,6 +129,7 @@
                 "require": {
                     "doctrine/doctrine-bundle": "^1.12",
                     "doctrine/orm": "^2.7",
+                    "rospdf/pdf-php": "^0.12.63",
                     "symfony/flex": "^1.5",
                     "symfony/form": "^4.4",
                     "symfony/framework-bundle": "^4.4",
