@@ -129,7 +129,8 @@
                 "require": {
                     "doctrine/doctrine-bundle": "^1.12",
                     "doctrine/orm": "^2.7",
-                    "rospdf/pdf-php": "^0.12.63",
+                    "fpdf/fpdf": "^1.83.1",
+                    "google/apiclient": "^2.9",
                     "symfony/flex": "^1.5",
                     "symfony/form": "^4.4",
                     "symfony/framework-bundle": "^4.4",
@@ -165,6 +166,7 @@
             "cache:clear": "symfony-cmd",
             "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
         },
+        "pre-autoload-dump": "Google\\Task\\Composer::cleanup",
         "post-install-cmd": [
             "@auto-scripts"
         ],
@@ -176,13 +178,16 @@
         "symfony/symfony": "*"
     },
     "extra": {
-        "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "keep-outdated": true
         },
+        "google/apiclient-services": [
+            "Calendar"
+        ],
         "symfony": {
             "allow-contrib": true,
             "endpoint": "https://flex.rapsys.eu"
-        }
+        },
+        "symfony-assets-install": "relative"
     }
 }
