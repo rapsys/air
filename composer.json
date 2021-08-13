@@ -64,31 +64,6 @@
         {
             "type": "package",
             "package": {
-                "name": "rapsys/userbundle",
-                "version": "dev-master",
-                "source": {
-                    "type": "git",
-                    "url": "https://rapsys@git.rapsys.eu/userbundle",
-                    "reference": "master"
-                },
-                "autoload": {
-                    "psr-4": {
-                        "Rapsys\\UserBundle\\": ""
-                    }
-                },
-                "require": {
-                    "doctrine/doctrine-bundle": "^1.12",
-                    "symfony/flex": "^1.5",
-                    "symfony/form": "^4.4",
-                    "symfony/framework-bundle": "^4.4",
-                    "symfony/security-bundle": "^4.4",
-                    "symfony/validator": "^4.4"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
                 "name": "rapsys/packbundle",
                 "version": "dev-master",
                 "source": {
@@ -114,6 +89,32 @@
         {
             "type": "package",
             "package": {
+                "name": "rapsys/userbundle",
+                "version": "dev-master",
+                "source": {
+                    "type": "git",
+                    "url": "https://rapsys@git.rapsys.eu/userbundle",
+                    "reference": "master"
+                },
+                "autoload": {
+                    "psr-4": {
+                        "Rapsys\\UserBundle\\": ""
+                    }
+                },
+                "require": {
+                    "doctrine/doctrine-bundle": "^1.12",
+                    "rapsys/packbundle": "dev-master",
+                    "symfony/flex": "^1.5",
+                    "symfony/form": "^4.4",
+                    "symfony/framework-bundle": "^4.4",
+                    "symfony/security-bundle": "^4.4",
+                    "symfony/validator": "^4.4"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
                 "name": "rapsys/airbundle",
                 "version": "dev-master",
                 "source": {
@@ -129,6 +130,8 @@
                 "require": {
                     "doctrine/doctrine-bundle": "^1.12",
                     "doctrine/orm": "^2.7",
+                    "rapsys/userbundle": "dev-master",
+                    "rapsys/packbundle": "dev-master",
                     "fpdf/fpdf": "^1.83.1",
                     "google/apiclient": "^2.9",
                     "symfony/flex": "^1.5",
