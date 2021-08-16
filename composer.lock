@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9edf606dfde101fc0b3c58bb4b5e0cb3",
+    "content-hash": "0573577e039402dccd4abeafd3138067",
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
@@ -2656,6 +2656,8 @@
                 "doctrine/orm": "^2.7",
                 "fpdf/fpdf": "^1.83.1",
                 "google/apiclient": "^2.9",
+                "rapsys/packbundle": "dev-master",
+                "rapsys/userbundle": "dev-master",
                 "symfony/flex": "^1.5",
                 "symfony/form": "^4.4",
                 "symfony/framework-bundle": "^4.4",
