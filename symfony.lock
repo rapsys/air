@@ -60,6 +60,9 @@
     "doctrine/reflection": {
         "version": "1.2.1"
     },
+    "doctrine/sql-formatter": {
+        "version": "1.1.1"
+    },
     "egulias/email-validator": {
         "version": "2.1.17"
     },
@@ -120,6 +123,9 @@
     "psr/container": {
         "version": "1.0.0"
     },
+    "psr/event-dispatcher": {
+        "version": "1.0.0"
+    },
     "psr/http-client": {
         "version": "1.0.1"
     },
@@ -161,9 +167,6 @@
         "files": [
             "bin/console"
         ]
-    },
-    "symfony/debug": {
-        "version": "4.4.8"
     },
     "symfony/dependency-injection": {
         "version": "4.4.8"
@@ -223,9 +226,6 @@
     "symfony/http-kernel": {
         "version": "4.4.8"
     },
-    "symfony/inflector": {
-        "version": "5.0.8"
-    },
     "symfony/intl": {
         "version": "5.0.8"
     },
@@ -244,6 +244,9 @@
     "symfony/options-resolver": {
         "version": "5.0.8"
     },
+    "symfony/password-hasher": {
+        "version": "5.3.7"
+    },
     "symfony/phpunit-bridge": {
         "version": "4.4.8",
         "files": [
@@ -253,6 +256,9 @@
             "phpunit.xml.dist",
             "tests/.gitignore"
         ]
+    },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "1.23.1"
     },
     "symfony/polyfill-intl-icu": {
         "version": "1.17.0"
@@ -287,6 +293,9 @@
     "symfony/property-access": {
         "version": "5.0.8"
     },
+    "symfony/property-info": {
+        "version": "5.3.7"
+    },
     "symfony/routing": {
         "version": "4.4.8",
         "files": [
@@ -318,6 +327,9 @@
     },
     "symfony/stopwatch": {
         "version": "5.0.8"
+    },
+    "symfony/string": {
+        "version": "5.3.7"
     },
     "symfony/translation": {
         "version": "4.4.8",
@@ -361,12 +373,6 @@
     },
     "symfony/yaml": {
         "version": "4.4.8"
-    },
-    "twig/extensions": {
-        "version": "1.5.4",
-        "files": [
-            "config/packages/twig_extensions.yaml"
-        ]
     },
     "twig/extra-bundle": {
         "version": "3.1.1"
