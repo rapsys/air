@@ -19,6 +19,11 @@
         <env name="GOOGLE_CLIENT_ID" value=""/>
         <env name="GOOGLE_CLIENT_SECRET" value=""/>
         <!-- ###- google/apiclient ### -->
+
+        <!-- ###+ symfony/framework-bundle ### -->
+        <env name="APP_ENV" value="dev"/>
+        <env name="APP_SECRET" value="6c7e1549a2fc98a71e3f2b6d3dbec822"/>
+        <!-- ###- symfony/framework-bundle ### -->
     </php>
 
     <testsuites>
