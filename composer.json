@@ -202,7 +202,9 @@
             "keep-outdated": true
         },
         "google/apiclient-services": [
-            "Calendar"
+            "Calendar",
+            "Email",
+            "Profile"
         ],
         "symfony": {
             "allow-contrib": true,
