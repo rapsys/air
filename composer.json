@@ -203,8 +203,7 @@
         },
         "google/apiclient-services": [
             "Calendar",
-            "Email",
-            "Profile"
+            "Oauth2"
         ],
         "symfony": {
             "allow-contrib": true,
