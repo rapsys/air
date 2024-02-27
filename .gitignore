@@ -1,3 +1,4 @@
+# Project git ignored files
 
 ###> symfony/framework-bundle ###
 /.env.local
@@ -18,3 +19,16 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+
+###> rapsys/airbundle ###
+/..bfg-report/
+/backup/
+/public/image/
+/public/test/
+/TODROP
+/composer.lock
+/symfony.lock
+.*.un~
+*.orig
+*.deadcode
+###< rapsys/airbundle ###
