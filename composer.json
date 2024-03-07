@@ -208,7 +208,7 @@
             "allow-contrib": true,
             "docker": false,
             "endpoint": [
-				"https://git.rapsys.eu/recipes/blob_plain/HEAD:/index.json",
+				"https://git.rapsys.eu/recipe/blob_plain/HEAD:/index.json",
 				"flex://defaults"
 			],
             "require": "^7.0"
